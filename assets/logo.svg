@@ -1,1 +1,33 @@
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <!-- Cuerpo robot -->
+  <rect x="2" y="10" width="30" height="26" rx="6"
+        fill="#00e5a0" fill-opacity="0.12"
+        stroke="#00e5a0" stroke-width="1.6"/>
+  <!-- Ojo izquierdo verde -->
+  <rect x="8"  y="19" width="7" height="7" rx="2" fill="#00e5a0"/>
+  <!-- Ojo derecho azul -->
+  <rect x="19" y="19" width="7" height="7" rx="2" fill="#00b4ff"/>
+  <!-- Boca -->
+  <rect x="8" y="30" width="18" height="2.5" rx="1.25" fill="#00e5a0" fill-opacity="0.75"/>
+  <!-- Antena -->
+  <line x1="17" y1="10" x2="17" y2="4" stroke="#00e5a0" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="17" cy="3" r="2.5" fill="#00e5a0"/>
+  <!-- Indicador online parpadeante -->
+  <circle cx="37" cy="12" r="3" fill="#00e5a0">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Texto SMARTBOT -->
+  <text x="48" y="30"
+        font-family="'Syne', 'Arial Black', Arial, sans-serif"
+        font-weight="800"
+        font-size="20"
+        letter-spacing="-0.4"
+        fill="#ffffff">SMART<tspan fill="#00e5a0">BOT</tspan></text>
+  <!-- Subtexto -->
+  <text x="49" y="42"
+        font-family="'DM Sans', Arial, sans-serif"
+        font-weight="400"
+        font-size="7.5"
+        letter-spacing="2.2"
+        fill="#7a8a9a">AUTOMATIZACIÓN CON IA</text>
+</svg>
