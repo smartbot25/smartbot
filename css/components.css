@@ -1,1 +1,665 @@
+/* ============================================================
+   components.css — Navbar, Botones, Cards, Chat, Footer
+   ============================================================ */
 
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 5%;
+  background: rgba(8, 12, 16, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(8, 12, 16, 0.97);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo span { color: var(--neon); }
+
+/* Logo como imagen */
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-logo .dot {
+  width: 8px; height: 8px;
+  background: var(--neon);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+.nav-cta {
+  background: var(--neon);
+  color: #000;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--btn-radius);
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.nav-cta:hover {
+  background: #fff;
+  transform: scale(1.04);
+}
+
+/* ══════════════════════════════════════
+   BOTONES
+══════════════════════════════════════ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--neon);
+  color: #000;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: var(--btn-radius);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neon);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: var(--btn-radius);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════
+   SERVICE CARDS
+══════════════════════════════════════ */
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 2rem;
+  transition: var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-card:hover {
+  border-color: rgba(0, 229, 160, 0.35);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.service-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.icon-wa  { background: rgba(37, 211, 102, 0.15); }
+.icon-ig  { background: rgba(228, 64,  95,  0.15); }
+.icon-fb  { background: rgba(24,  119, 242, 0.15); }
+.icon-web { background: rgba(0,  229, 160, 0.15); }
+
+.service-card p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.service-tag {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--neon);
+  background: rgba(0, 229, 160, 0.1);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--btn-radius);
+}
+
+/* ══════════════════════════════════════
+   STEP CARDS (cómo funciona)
+══════════════════════════════════════ */
+.step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--neon);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.step:hover .step-num {
+  background: var(--neon);
+  color: #000;
+  border-color: var(--neon);
+  transform: scale(1.1);
+}
+
+.step h3 {
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   BENEFIT ITEMS
+══════════════════════════════════════ */
+.benefit-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.benefit-icon {
+  width: 40px; height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  background: rgba(0, 229, 160, 0.1);
+  border: 1px solid rgba(0, 229, 160, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.benefit-text h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.benefit-text p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* ══════════════════════════════════════
+   CHAT DEMO
+══════════════════════════════════════ */
+.visual-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-panel::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(0,229,160,0.2), transparent 50%, rgba(0,180,255,0.1));
+  pointer-events: none;
+}
+
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+
+.chat-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.chat-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--white);
+}
+
+.chat-status {
+  font-size: 0.75rem;
+  color: var(--neon);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.chat-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--neon);
+  border-radius: 50%;
+  animation: pulse-dot 1.5s infinite;
+}
+
+.msg {
+  padding: 0.65rem 1rem;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  max-width: 85%;
+  animation: fadeIn 0.5s ease both;
+}
+
+.msg-user {
+  background: rgba(0, 229, 160, 0.15);
+  color: var(--text);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.msg-bot {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.msg-time {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: right;
+  margin-top: 0.2rem;
+}
+
+.typing {
+  display: flex;
+  gap: 4px;
+  padding: 0.65rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  border-bottom-left-radius: 4px;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.typing span {
+  width: 6px; height: 6px;
+  background: var(--muted);
+  border-radius: 50%;
+  animation: typing-dot 1.2s infinite;
+}
+
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ══════════════════════════════════════
+   PRICING CARDS
+══════════════════════════════════════ */
+.price-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-card.featured {
+  border-color: var(--neon);
+  background: linear-gradient(135deg, rgba(0, 229, 160, 0.08), var(--card));
+}
+
+.price-card:hover { transform: translateY(-4px); }
+
+.price-badge {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  background: var(--neon);
+  color: #000;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--btn-radius);
+}
+
+.price-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.price-amount {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.price-amount sup {
+  font-size: 1.2rem;
+  vertical-align: top;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.price-period {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.price-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.price-features li::before {
+  content: '✓';
+  width: 20px; height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  background: rgba(0, 229, 160, 0.15);
+  color: var(--neon);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-cta {
+  display: block;
+  text-align: center;
+  padding: 0.85rem;
+  border-radius: var(--btn-radius);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.price-cta.solid {
+  background: var(--neon);
+  color: #000;
+}
+
+.price-cta.solid:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neon);
+}
+
+.price-cta.outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.price-cta.outline:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+}
+
+/* ══════════════════════════════════════
+   TESTIMONIAL CARDS
+══════════════════════════════════════ */
+.t-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 2rem;
+  transition: var(--transition-slow);
+}
+
+.t-card:hover {
+  border-color: rgba(0, 229, 160, 0.25);
+  transform: translateY(-3px);
+}
+
+.t-stars {
+  color: #fbbc04;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.t-text {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.t-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.t-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon), var(--neon2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.t-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--white);
+}
+
+.t-role {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ══════════════════════════════════════
+   WHATSAPP BUTTON (flotante)
+══════════════════════════════════════ */
+.float-wa {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 60px; height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-wa);
+  z-index: 99;
+  transition: var(--transition);
+  animation: float-pulse 3s infinite;
+}
+
+.float-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 40px rgba(37, 211, 102, 0.7);
+}
+
+.float-wa svg {
+  width: 28px; height: 28px;
+}
+
+/* ══════════════════════════════════════
+   WA BUTTON (final CTA)
+══════════════════════════════════════ */
+.wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: #25d366;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 1rem 2.2rem;
+  border-radius: var(--btn-radius);
+  transition: var(--transition);
+  box-shadow: var(--shadow-wa);
+}
+
+.wa-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 50px rgba(37, 211, 102, 0.4);
+}
+
+.wa-icon {
+  width: 22px; height: 22px;
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 3rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+.footer-logo span { color: var(--neon); }
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--neon); }
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: var(--muted);
+  width: 100%;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
