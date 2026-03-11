@@ -1,1 +1,63 @@
+/* ============================================================
+   responsive.css — Breakpoints mobile-first
+   ============================================================ */
 
+/* ── Tablet: max 992px ── */
+@media (max-width: 992px) {
+  .benefits-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .steps::before { display: none; }
+  .step { padding: 0 0 2rem; }
+}
+
+/* ── Mobile: max 768px ── */
+@media (max-width: 768px) {
+  /* Nav */
+  nav { padding: 1rem 4%; }
+  .nav-logo { font-size: 1.15rem; }
+  .nav-cta { font-size: 0.8rem; padding: 0.5rem 1rem; }
+
+  /* Hero */
+  .hero { padding: 7rem 5% 4rem; }
+  .hero-sub { font-size: 1rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+
+  /* Stats */
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* Steps */
+  .steps { grid-template-columns: 1fr; }
+
+  /* Pricing */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  /* Testimonials */
+  .t-grid { grid-template-columns: 1fr; }
+
+  /* Footer */
+  footer { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+  /* Float WA */
+  .float-wa { bottom: 1.2rem; right: 1.2rem; width: 52px; height: 52px; }
+  .float-wa svg { width: 24px; height: 24px; }
+}
+
+/* ── Small phones: max 420px ── */
+@media (max-width: 420px) {
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .stat-num { font-size: 2rem; }
+  .price-amount { font-size: 2.4rem; }
+  .hero-badge { font-size: 0.7rem; }
+}
