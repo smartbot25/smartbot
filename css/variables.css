@@ -1,1 +1,45 @@
+/* ============================================================
+   variables.css — Design Tokens SMARTBOT
+   Todos los colores, tipografías y espaciados en un solo lugar
+   ============================================================ */
 
+:root {
+  /* Colores principales */
+  --neon:        #00e5a0;   /* Verde neon — acento principal */
+  --neon2:       #00b4ff;   /* Azul neon — acento secundario */
+  --neon-glow:   rgba(0, 229, 160, 0.15);
+  --neon2-glow:  rgba(0, 180, 255, 0.08);
+
+  /* Fondos */
+  --bg:          #080c10;   /* Fondo principal */
+  --bg2:         #0d1117;   /* Fondo alternado (secciones pares) */
+  --bg3:         #111820;   /* Fondo cards hover */
+  --card:        #131b24;   /* Fondo de tarjetas */
+
+  /* Bordes */
+  --border:      rgba(0, 229, 160, 0.15);
+  --border-soft: rgba(255, 255, 255, 0.07);
+
+  /* Texto */
+  --text:        #e8f0fe;   /* Texto principal */
+  --muted:       #7a8a9a;   /* Texto secundario / subtítulos */
+  --white:       #ffffff;
+
+  /* Tipografías */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Espaciados base */
+  --section-padding: 6rem 5%;
+  --card-radius:     20px;
+  --btn-radius:      100px;
+
+  /* Sombras */
+  --shadow-neon:  0 8px 40px rgba(0, 229, 160, 0.25);
+  --shadow-card:  0 20px 60px rgba(0, 0, 0, 0.4);
+  --shadow-wa:    0 4px 30px rgba(37, 211, 102, 0.4);
+
+  /* Transición estándar */
+  --transition: all 0.25s ease;
+  --transition-slow: all 0.4s ease;
+}
